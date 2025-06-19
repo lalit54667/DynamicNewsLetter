@@ -1,0 +1,43 @@
+{{ 'newsletter.css' | asset_url | stylesheet_tag }}
+
+
+
+{% if article %}
+  {% assign title_lower = article.title | downcase %}
+
+  {% if title_lower contains "skincare" or title_lower contains "beauty" %}
+    {% assign dynamic_title = "Get More Skincare Secrets!" %}
+  {% elsif title_lower contains "fitness" or title_lower contains "health" %}
+    {% assign dynamic_title = "Level Up Your Fitness Game!" %}
+  {% elsif title_lower contains "diwali" %}
+    {% assign dynamic_title = "Never Miss a Diwali Deal!" %}
+  {% elsif title_lower contains "holi" %}
+    {% assign dynamic_title = "Celebrate Holi with Colorful Offers!" %}
+  {% elsif title_lower contains "tech" or title_lower contains "gadget" %}
+    {% assign dynamic_title = "Get the Latest Tech Updates!" %}
+  {% elsif title_lower contains "fashion" or title_lower contains "style" %}
+    {% assign dynamic_title = "Stay Trendy with Fashion Tips!" %}
+  {% elsif title_lower contains "travel" or title_lower contains "trip" %}
+    {% assign dynamic_title = "Travel Smart with Insider Deals!" %}
+  {% elsif title_lower contains "food" or title_lower contains "recipe" %}
+    {% assign dynamic_title = "Taste New Recipes Straight to Your Inbox!" %}
+  {% else %}
+    {% assign dynamic_title = "Subscribe for More Like This!" %}
+  {% endif %}
+{% else %}
+  {% assign dynamic_title = "Subscribe to Our Newsletter!" %}
+{% endif %}
+
+<div class="blog-newsletter">
+  <h2 class="newsletter-title">{{ dynamic_title }}</h2>
+  <input type="email" placeholder="Enter your email" class="newsletter-input" />
+  <button class="newsletter-button">Subscribe</button>
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter Form",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}

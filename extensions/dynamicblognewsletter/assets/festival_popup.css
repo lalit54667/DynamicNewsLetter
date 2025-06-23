@@ -1,0 +1,29 @@
+.festival-popup {
+  background: #fff8dc;
+  border: 2px solid #f0c000;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+}
+
+.festival-popup p {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.close-popup {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

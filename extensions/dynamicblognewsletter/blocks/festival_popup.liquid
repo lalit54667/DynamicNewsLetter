@@ -1,0 +1,24 @@
+{{ 'festival_popup.css' | asset_url | stylesheet_tag }}
+
+{% assign festival = "diwali" %}
+
+{% if festival != "none" %}
+  <div class="festival-popup">
+    {% if festival == "diwali" %}
+      <p>🎆 Happy Diwali! Get 25% OFF on all gadgets. Limited time only!</p>
+    {% elsif festival == "holi" %}
+      <p>🌈 Celebrate Holi with Colors! Flat ₹100 OFF on skincare range!</p>
+    {% elsif festival == "eid" %}
+      <p>🕌 Eid Mubarak! Special festive bundles just for you!</p>
+    {% endif %}
+    <button class="close-popup" onclick="document.querySelector('.festival-popup').style.display='none'">X</button>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Festival Popup",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}
